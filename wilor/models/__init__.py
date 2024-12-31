@@ -25,11 +25,12 @@ def load_wilor(checkpoint_path, cfg_path):
         
         # Update config to be compatible with demo
 
+    current_dir = Path(__file__).parent.resolve()
     if ('DATA_DIR' in model_cfg.MANO):
         model_cfg.defrost()
-        model_cfg.MANO.DATA_DIR    = './mano_data/'
-        model_cfg.MANO.MODEL_PATH  = './mano_data/'
-        model_cfg.MANO.MEAN_PARAMS = './mano_data/mano_mean_params.npz'
+        model_cfg.MANO.DATA_DIR    = f'{current_dir}/../../mano_data/'
+        model_cfg.MANO.MODEL_PATH  = f'{current_dir}/../../mano_data/'
+        model_cfg.MANO.MEAN_PARAMS = f'{current_dir}/../../mano_data/mano_mean_params.npz'
         model_cfg.freeze()
 
     model = WiLoR.load_from_checkpoint(checkpoint_path, strict=False, cfg=model_cfg)
