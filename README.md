@@ -59,7 +59,9 @@ Create an account by clicking Sign Up and download the models (mano_v*_*.zip). U
 Note that MANO model falls under the [MANO license](https://mano.is.tue.mpg.de/license.html).
 ## Demo
 ```bash
-python demo.py --img_folder demo_img --out_folder demo_out --save_mesh 
+python demo.py --img_folder demo_img --out_folder demo_out --save_mesh
+python yolo_hand.py
+python realtime.py
 ```
 ## Start a local gradio demo
 You can start a local demo for inference by running:
